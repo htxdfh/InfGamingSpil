@@ -42,17 +42,35 @@ collision_mask = 0
 position = Vector2( 0, 19 )
 shape = SubResource( 2 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Timer Text" type="Label" parent="."]
 margin_left = 4.0
-margin_top = 8.0
+margin_top = 5.0
 margin_right = 44.0
-margin_bottom = 22.0
+margin_bottom = 35.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="Label"]
+[node name="Timer" type="Timer" parent="Timer Text"]
 wait_time = 180.0
 one_shot = true
 autostart = true
+
+[node name="Coins Text" type="Label" parent="."]
+margin_left = 140.0
+margin_top = 20.0
+margin_right = 180.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level Text" type="Label" parent="."]
+margin_left = 140.0
+margin_top = 5.0
+margin_right = 180.0
+margin_bottom = 19.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
