@@ -14,6 +14,10 @@ config/name="InfGaming"
 run/main_scene="res://Node2D.tscn"
 config/icon="res://Sprites/PlayerSprite.png"
 
+[global]
+
+layer=false
+
 [physics]
 
 common/enable_pause_aware_picking=true
