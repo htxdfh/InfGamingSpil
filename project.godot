@@ -11,12 +11,8 @@ config_version=4
 [application]
 
 config/name="InfGaming"
-<<<<<<< HEAD
 run/main_scene="res://World.tscn"
 config/icon="res://Sprites/PlayerSprite.png"
-=======
-config/icon="res://icon.png"
->>>>>>> parent of 30355cc (Merge branch 'main' of https://github.com/htxdfh/InfGamingSpil)
 
 <<<<<<< HEAD
 [global]
