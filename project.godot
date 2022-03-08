@@ -12,6 +12,7 @@ config_version=4
 
 config/name="InfGaming"
 <<<<<<< HEAD
+<<<<<<< HEAD
 run/main_scene="res://World.tscn"
 config/icon="res://Sprites/PlayerSprite.png"
 =======
@@ -84,6 +85,9 @@ shoot_right={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Projectile"
 >>>>>>> cc4fc4d5eeb8431f8af48a216facb44f02ecb85a
+=======
+config/icon="res://icon.png"
+>>>>>>> parent of 30355cc (Merge branch 'main' of https://github.com/htxdfh/InfGamingSpil)
 
 [physics]
 
