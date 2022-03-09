@@ -16,3 +16,7 @@ func _physics_process(delta):
 			collision.collider.OnHit()
 		
 		queue_free()
+
+
+func _on_HitBox_area_entered(area):
+	queue_free()

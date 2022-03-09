@@ -8,7 +8,13 @@ const PROJECTILE_SPEED = 200
 #
 var velocity = Vector2.ZERO
 var projectile = preload("res://Player/Projectile.tscn")
+onready var stats = $Stats
+onready var hurtbox = $PlayerHurtBox
+onready var flash = $AnimationPlayer
 
+func _ready():
+	stats.connect("no_health", self, "queue_free")
+	flash.play("FlashEnd")
 
 func _physics_process(delta):
 	MovePlayer(delta)
@@ -39,3 +45,13 @@ func MovePlayer(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 	velocity = move_and_slide(velocity)
+
+func _on_PlayerHurtBox_area_entered(area):
+	stats.health -= 1
+	hurtbox.start_invincibility(1)
+
+func _on_PlayerHurtBox_invincibility_ended():
+	flash.play("FlashEnd")
+
+func _on_PlayerHurtBox_invincibility_started():
+	flash.play("FlashStart")

@@ -1,17 +1,13 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
+onready var stats = $Stats
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
+	stats.connect("no_health", self, "queue_free")
 
 
 func _on_HurtBox_area_entered(area):
-	pass # Replace with function body.
+	stats.health -= 1
+	print(stats.health)
