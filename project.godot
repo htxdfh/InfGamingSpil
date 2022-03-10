@@ -26,6 +26,7 @@ window/stretch/aspect="keep"
 [global]
 
 pixel=false
+window=false
 
 [input]
 
