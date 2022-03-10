@@ -10,6 +10,7 @@ func _ready():
 	stats.connect("no_health", self, "OnDeath")
 
 func OnDeath():
+	stats.disconnect("no_health", self, "OnDeath")
 	queue_free()
 	
 	var coinInst = coin.instance()
