@@ -11,10 +11,6 @@ func shoot(pos, dir):
 func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
 	if collision:
-		print("Hit something" + collision.collider.name)
-		if collision.collider.has_method("OnHit"):
-			collision.collider.OnHit()
-		
 		queue_free()
 
 
