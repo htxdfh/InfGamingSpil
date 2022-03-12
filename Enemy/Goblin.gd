@@ -38,16 +38,15 @@ func _physics_process(delta):
 			direction = global_position.direction_to(path[0])
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	velocity = move_and_slide(velocity)
-	print(velocity)
+
 	
 func get_target_path(target_pos):
 	var destination = global_position + (target_pos - global_position)
 	path = nav.get_simple_path(global_position, destination , false)
-	print(destination)
+
 	
 	
 
 func _on_HurtBox_area_entered(area):
 	stats.health -= 1
-	print(stats.health)
 	lastVel = area.get_owner().velocity

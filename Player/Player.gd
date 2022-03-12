@@ -8,7 +8,7 @@ const PROJECTILE_SPEED = 200
 #
 var velocity = Vector2.ZERO
 var projectile = preload("res://Player/Projectile.tscn")
-onready var stats = $Stats
+onready var stats = $PlayerStats
 onready var hurtbox = $PlayerHurtBox
 onready var flash = $AnimationPlayer
 
@@ -48,6 +48,7 @@ func MovePlayer(delta):
 
 func _on_PlayerHurtBox_area_entered(area):
 	stats.health -= 1
+	Global.player_health = stats.health
 	hurtbox.start_invincibility(1)
 
 func _on_PlayerHurtBox_invincibility_ended():

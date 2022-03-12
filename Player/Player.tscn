@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Sprites/Wizard.png" type="Texture" id=2]
 [ext_resource path="res://Player/PlayerHurtBox.gd" type="Script" id=3]
 [ext_resource path="res://Stats/PlayerStats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Boxes/ChannelBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -30,6 +31,10 @@ radius = 5.99998
 height = 8.00005
 
 [sub_resource type="CapsuleShape2D" id=5]
+radius = 8.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id=11]
 radius = 8.0
 height = 8.0
 
@@ -97,9 +102,7 @@ position = Vector2( 0, 9 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
-[node name="Stats" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 2 )
-max_health = 3.0
+[node name="PlayerStats" parent="." instance=ExtResource( 4 )]
 
 [node name="PlayerHurtBox" type="Area2D" parent="."]
 collision_mask = 0
@@ -110,6 +113,14 @@ position = Vector2( 0, 1 )
 shape = SubResource( 5 )
 
 [node name="InvincibilityTimer" type="Timer" parent="PlayerHurtBox"]
+
+[node name="ChannelBox" parent="." instance=ExtResource( 5 )]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="ChannelBox" index="0"]
+position = Vector2( 0, 1 )
+shape = SubResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FlashEnd = SubResource( 8 )
@@ -122,3 +133,5 @@ anims/RESET = SubResource( 10 )
 [connection signal="invincibility_started" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_invincibility_started"]
 [connection signal="invincibility_started" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_started"]
 [connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="PlayerHurtBox" method="_on_InvincibilityTimer_timeout"]
+
+[editable path="ChannelBox"]
