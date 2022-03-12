@@ -17,7 +17,12 @@ var direction = Vector2.ZERO
 
 var lastVel = Vector2(0, 0)
 
+const minCoins = 1
+const maxCoins = 10
+
 func _ready():
+	randomize()
+	stats.coins = randi()%maxCoins + minCoins
 	stats.connect("no_health", self, "OnDeath")
 	yield(owner, "ready")
 	nav = owner.nav
@@ -26,9 +31,10 @@ func OnDeath():
 	stats.disconnect("no_health", self, "OnDeath")
 	queue_free()
 	
-	var coinInst = coin.instance()
-	coinInst.Spawn(position, lastVel)
-	get_parent().add_child(coinInst)
+	for i in stats.coins:
+		var coinInst = coin.instance()
+		coinInst.Spawn(position, lastVel)
+		get_parent().call_deferred("add_child", coinInst)
 
 func _physics_process(delta):
 	if path.size() > 0:

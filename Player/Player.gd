@@ -12,6 +12,8 @@ onready var stats = $PlayerStats
 onready var hurtbox = $PlayerHurtBox
 onready var flash = $AnimationPlayer
 
+var coins = 0
+
 func _ready():
 	stats.connect("no_health", self, "queue_free")
 	flash.play("FlashEnd")
@@ -56,3 +58,8 @@ func _on_PlayerHurtBox_invincibility_ended():
 
 func _on_PlayerHurtBox_invincibility_started():
 	flash.play("FlashStart")
+
+
+func _on_PlayerPickupBox_body_entered(body):
+	coins += 1
+	body.queue_free()

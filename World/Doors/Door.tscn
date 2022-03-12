@@ -21,8 +21,8 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="ChannelBox" parent="." instance=ExtResource( 2 )]
-collision_layer = 16
-collision_mask = 16
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" parent="ChannelBox" index="0"]
 position = Vector2( 0, 3 )

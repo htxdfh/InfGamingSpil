@@ -86,6 +86,9 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="CircleShape2D" id=11]
+radius = 23.0217
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 8
 script = ExtResource( 1 )
@@ -115,8 +118,8 @@ shape = SubResource( 5 )
 [node name="InvincibilityTimer" type="Timer" parent="PlayerHurtBox"]
 
 [node name="ChannelBox" parent="." instance=ExtResource( 5 )]
-collision_layer = 16
-collision_mask = 16
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" parent="ChannelBox" index="0"]
 position = Vector2( 0, 1 )
@@ -127,6 +130,13 @@ anims/FlashEnd = SubResource( 8 )
 anims/FlashStart = SubResource( 9 )
 anims/RESET = SubResource( 10 )
 
+[node name="PlayerPickupBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPickupBox"]
+shape = SubResource( 11 )
+
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_area_entered"]
 [connection signal="invincibility_ended" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_ended"]
@@ -135,3 +145,4 @@ anims/RESET = SubResource( 10 )
 [connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="PlayerHurtBox" method="_on_InvincibilityTimer_timeout"]
 
 [editable path="ChannelBox"]
+[connection signal="body_entered" from="PlayerPickupBox" to="Stats" method="_on_PlayerPickupBox_body_entered"]
