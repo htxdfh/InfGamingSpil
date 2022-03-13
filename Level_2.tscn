@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Boxes/NavMesh.png" type="Texture" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://World/Doors/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Coin/Coins Text.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/Level Text.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -147,14 +148,7 @@ shape = SubResource( 2 )
 [node name="Coins Text" parent="." instance=ExtResource( 9 )]
 player = NodePath("../YSort/Player")
 
-[node name="Level Text" type="Label" parent="."]
-margin_left = 140.0
-margin_top = 5.0
-margin_right = 180.0
-margin_bottom = 19.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Level Text" parent="." instance=ExtResource( 10 )]
 
 [node name="NavTimer" type="Timer" parent="."]
 wait_time = 0.5

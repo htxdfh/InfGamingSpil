@@ -59,10 +59,6 @@ func _on_PlayerHurtBox_invincibility_ended():
 func _on_PlayerHurtBox_invincibility_started():
 	flash.play("FlashStart")
 
-
-
-
-
 func _on_PlayerPickupBox_body_entered(body):
 	stats.coins += 1
 	body.queue_free()
