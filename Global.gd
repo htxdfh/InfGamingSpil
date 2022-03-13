@@ -6,3 +6,5 @@ var player_max_health = 3
 
 var player_health = 3
 
+var player_coins = 0
+
