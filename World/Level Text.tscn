@@ -3,10 +3,11 @@
 [ext_resource path="res://World/Level Text.gd" type="Script" id=1]
 
 [node name="Level Text" type="Label"]
-margin_left = 120.0
+margin_left = 115.0
 margin_top = 5.0
-margin_right = 180.0
+margin_right = 175.0
 margin_bottom = 19.0
+align = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
