@@ -35,8 +35,8 @@ radius = 8.0
 height = 8.0
 
 [sub_resource type="CapsuleShape2D" id=11]
-radius = 8.0
-height = 8.0
+radius = 20.0
+height = 4.0
 
 [sub_resource type="Animation" id=8]
 resource_name = "FlashEnd"
@@ -140,5 +140,6 @@ shape = SubResource( 11 )
 [connection signal="invincibility_started" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_invincibility_started"]
 [connection signal="invincibility_started" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_started"]
 [connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="PlayerHurtBox" method="_on_InvincibilityTimer_timeout"]
+[connection signal="body_entered" from="PlayerPickupBox" to="." method="_on_PlayerPickupBox_body_entered"]
 
 [editable path="ChannelBox"]

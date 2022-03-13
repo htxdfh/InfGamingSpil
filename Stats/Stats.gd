@@ -30,8 +30,3 @@ func set_coins(value):
 
 func _ready():
 	self.health = int(self.max_health)
-
-
-func _on_PlayerPickupBox_body_entered(body):
-	self.coins += 1
-	body.queue_free()
