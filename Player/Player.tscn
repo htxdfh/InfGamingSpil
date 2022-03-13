@@ -86,9 +86,6 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CircleShape2D" id=11]
-radius = 23.0217
-
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 8
 script = ExtResource( 1 )
@@ -145,4 +142,3 @@ shape = SubResource( 11 )
 [connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="PlayerHurtBox" method="_on_InvincibilityTimer_timeout"]
 
 [editable path="ChannelBox"]
-[connection signal="body_entered" from="PlayerPickupBox" to="Stats" method="_on_PlayerPickupBox_body_entered"]
