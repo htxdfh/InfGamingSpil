@@ -8,4 +8,4 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_text(str(Global.level_count))
+	set_text(str(Global.level_count) + " Level")

@@ -3,7 +3,7 @@
 [ext_resource path="res://World/CoinsLabel.gd" type="Script" id=1]
 
 [node name="Coins Text" type="Label"]
-margin_left = 140.0
+margin_left = 120.0
 margin_top = 20.0
 margin_right = 180.0
 margin_bottom = 34.0
