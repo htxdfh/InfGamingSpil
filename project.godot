@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="InfGaming"
-run/main_scene="res://Level_1.tscn"
+run/main_scene="res://Opening Interface.tscn"
 config/icon="res://Sprites/PlayerSprite.png"
 
 [autoload]

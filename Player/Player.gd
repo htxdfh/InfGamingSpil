@@ -15,7 +15,6 @@ onready var flash = $AnimationPlayer
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
-	stats.connect("no_health", self, "queue_free")
 	flash.play("FlashEnd")
 
 func _physics_process(delta):
@@ -48,7 +47,7 @@ func MovePlayer(delta):
 		
 	velocity = move_and_slide(velocity)
 
-func _on_PlayerHurtBox_area_entered(area):
+func _on_PlayerHurtBox_area_entered(_area):
 	stats.health -= 1
 	Global.player_health = stats.health
 	hurtbox.start_invincibility(1)
