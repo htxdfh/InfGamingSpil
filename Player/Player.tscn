@@ -27,8 +27,8 @@ shader = SubResource( 6 )
 shader_param/active = true
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 5.99998
-height = 8.00005
+radius = 8.99999
+height = 4.00002
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 8.0
@@ -87,6 +87,7 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 0, -11 )
 collision_mask = 8
 script = ExtResource( 1 )
 __meta__ = {
@@ -98,7 +99,7 @@ material = SubResource( 7 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 9 )
+position = Vector2( 0, 10 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
@@ -134,6 +135,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPickupBox"]
 shape = SubResource( 11 )
 
+[node name="ProjectileCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_area_entered"]
 [connection signal="invincibility_ended" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_ended"]
@@ -141,5 +146,6 @@ shape = SubResource( 11 )
 [connection signal="invincibility_started" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_started"]
 [connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="PlayerHurtBox" method="_on_InvincibilityTimer_timeout"]
 [connection signal="body_entered" from="PlayerPickupBox" to="." method="_on_PlayerPickupBox_body_entered"]
+[connection signal="timeout" from="ProjectileCooldown" to="." method="_on_Projectile_cooldown_timeout"]
 
 [editable path="ChannelBox"]

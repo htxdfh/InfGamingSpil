@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const ACCELERATION = 1000
-const MAX_SPEED = 50
+const MAX_SPEED = 40
 const FRICTION = 500
 
 var coin = preload("res://Coin/Coin.tscn")

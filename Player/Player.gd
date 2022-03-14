@@ -8,10 +8,13 @@ const PROJECTILE_SPEED = 200
 #
 var velocity = Vector2.ZERO
 var projectile = preload("res://Player/Projectile.tscn")
+var shoot_ready = true
+
 onready var stats = $PlayerStats
 onready var hurtbox = $PlayerHurtBox
 onready var flash = $AnimationPlayer
-
+onready var ysort = $YSort
+onready var shoot_timer = $ProjectileCooldown
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
@@ -28,10 +31,20 @@ func Shoot():
 	
 	shoot_vector = shoot_vector.normalized() * PROJECTILE_SPEED
 	
-	if shoot_vector != Vector2.ZERO:
-		var p = projectile.instance()
-		p.shoot(position, shoot_vector + velocity)
-		get_parent().add_child(p)
+	if shoot_vector != Vector2.ZERO and shoot_ready == true:
+		shoot_ready = false
+		shoot_timer.start()
+		if shoot_vector.y <= 0:
+			var p = projectile.instance()
+			p.show_behind_parent = true
+			p.shoot(position + Vector2(0,6), shoot_vector)
+			get_parent().add_child(p)
+		else:
+			var p = projectile.instance()
+			p.show_behind_parent = false
+			p.shoot(position + Vector2(0,6), shoot_vector)
+			get_parent().add_child(p)
+		
 
 func MovePlayer(delta):
 	var input_vector = Vector2.ZERO
@@ -61,3 +74,8 @@ func _on_PlayerHurtBox_invincibility_started():
 func _on_PlayerPickupBox_body_entered(body):
 	stats.coins += 1
 	body.queue_free()
+
+
+func _on_Projectile_cooldown_timeout():
+	shoot_ready = true
+	print("hello")
