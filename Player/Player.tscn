@@ -139,6 +139,8 @@ shape = SubResource( 11 )
 wait_time = 0.1
 one_shot = true
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_area_entered"]
 [connection signal="invincibility_ended" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_ended"]
