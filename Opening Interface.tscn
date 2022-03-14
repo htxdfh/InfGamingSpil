@@ -67,6 +67,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 0/z_index = 0
 
 [node name="Level_1" type="Node2D"]
+position = Vector2( 3, -1 )
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
