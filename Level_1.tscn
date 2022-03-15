@@ -146,6 +146,7 @@ player = NodePath("../YSort/Player")
 [node name="Level Text" parent="." instance=ExtResource( 10 )]
 
 [node name="GameOver" parent="." instance=ExtResource( 11 )]
+visible = false
 
 [node name="NavTimer" type="Timer" parent="."]
 wait_time = 0.5
