@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Sprites/Wizard.png" type="Texture" id=2]
+[ext_resource path="res://Stats/Sprites/HealthBar.png" type="Texture" id=3]
 [ext_resource path="res://Stats/PlayerStats.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Boxes/ChannelBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Stats/Sprites/HealthBarThin.png" type="Texture" id=6]
 
 [sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
@@ -138,6 +140,29 @@ wait_time = 0.1
 one_shot = true
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 0, -19 )
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+visible = false
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="Sprite2" type="Sprite" parent="Node2D"]
+texture = ExtResource( 6 )
+hframes = 2
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = -16.0
+margin_top = -3.0
+margin_right = 40.0
+margin_bottom = 28.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "3
+"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_area_entered"]
 [connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
