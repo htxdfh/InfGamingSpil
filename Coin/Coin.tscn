@@ -7,9 +7,9 @@
 bounce = 0.6
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 1.0
+radius = 3.0
 
-[node name="KinematicBody2D" type="RigidBody2D"]
+[node name="KinematicBody2D" type="RigidBody2D" groups=["Coin"]]
 collision_layer = 16
 collision_mask = 15
 physics_material_override = SubResource( 3 )
