@@ -15,6 +15,9 @@ onready var hurtbox = $PlayerHurtBox
 onready var flash = $AnimationPlayer
 onready var ysort = $YSort
 onready var shoot_timer = $ProjectileCooldown
+onready var timer = $"PlayerHurtBox/InvincibilityTimer"
+
+var invincible = false
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
@@ -37,12 +40,12 @@ func Shoot():
 		if shoot_vector.y <= 0:
 			var p = projectile.instance()
 			p.show_behind_parent = true
-			p.shoot(position + Vector2(0,6), shoot_vector)
+			p.shoot(position + Vector2(0,6), shoot_vector )
 			get_parent().add_child(p)
 		else:
 			var p = projectile.instance()
 			p.show_behind_parent = false
-			p.shoot(position + Vector2(0,6), shoot_vector)
+			p.shoot(position + Vector2(0,6), shoot_vector )
 			get_parent().add_child(p)
 		
 
@@ -61,15 +64,21 @@ func MovePlayer(delta):
 	velocity = move_and_slide(velocity)
 
 func _on_PlayerHurtBox_area_entered(_area):
-	stats.health -= 1
-	Global.player_health = stats.health
-	hurtbox.start_invincibility(1)
+	if !invincible:
+		invincible = true
+		timer.start(1)
+		Invincibility_started()
+		stats.health -= 1
+		Global.player_health = stats.health
+	
 
-func _on_PlayerHurtBox_invincibility_ended():
+func Invincibility_ended():
 	flash.play("FlashEnd")
+	hurtbox.set_deferred("monitoring", true)
 
-func _on_PlayerHurtBox_invincibility_started():
+func Invincibility_started():
 	flash.play("FlashStart")
+	hurtbox.set_deferred("monitoring", false)
 
 func _on_PlayerPickupBox_body_entered(body):
 	stats.coins += 1
@@ -79,3 +88,9 @@ func _on_PlayerPickupBox_body_entered(body):
 func _on_Projectile_cooldown_timeout():
 	shoot_ready = true
 	print("hello")
+
+
+
+func _on_InvincibilityTimer_timeout():
+	invincible = false
+	Invincibility_ended()

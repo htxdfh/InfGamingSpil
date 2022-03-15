@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const lifetime = 1
 var velocity
 
 
@@ -10,7 +11,8 @@ func shoot(pos, dir):
 	
 func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
-	if collision:
+	scale = Vector2(scale.x - delta/lifetime, scale.y - delta/lifetime)
+	if collision || scale.x <= 0.5:
 		queue_free()
 
 

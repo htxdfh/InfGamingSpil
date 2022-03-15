@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Sprites/Wizard.png" type="Texture" id=2]
-[ext_resource path="res://Player/PlayerHurtBox.gd" type="Script" id=3]
 [ext_resource path="res://Stats/PlayerStats.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Boxes/ChannelBox.tscn" type="PackedScene" id=5]
 
@@ -107,7 +106,6 @@ shape = SubResource( 4 )
 
 [node name="PlayerHurtBox" type="Area2D" parent="."]
 collision_mask = 0
-script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
 position = Vector2( 0, 1 )
@@ -142,11 +140,7 @@ one_shot = true
 [node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_area_entered"]
-[connection signal="invincibility_ended" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_invincibility_ended"]
-[connection signal="invincibility_ended" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_ended"]
-[connection signal="invincibility_started" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_invincibility_started"]
-[connection signal="invincibility_started" from="PlayerHurtBox" to="PlayerHurtBox" method="_on_PlayerHurtBox_invincibility_started"]
-[connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="PlayerHurtBox" method="_on_InvincibilityTimer_timeout"]
+[connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
 [connection signal="body_entered" from="PlayerPickupBox" to="." method="_on_PlayerPickupBox_body_entered"]
 [connection signal="timeout" from="ProjectileCooldown" to="." method="_on_Projectile_cooldown_timeout"]
 
