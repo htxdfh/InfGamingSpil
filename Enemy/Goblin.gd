@@ -6,6 +6,7 @@ const FRICTION = 500
 
 var coin = preload("res://Coin/Coin.tscn")
 onready var stats = $Stats
+onready var healthBar = $HealthBarSmall
 
 var velocity = Vector2.ZERO
 var path = []
@@ -26,6 +27,7 @@ func _ready():
 	stats.connect("no_health", self, "OnDeath")
 	yield(owner, "ready")
 	nav = owner.nav
+	healthBar.UpdateHealthBar(stats.health, stats.max_health)
 
 func OnDeath():
 	stats.disconnect("no_health", self, "OnDeath")
@@ -56,3 +58,4 @@ func get_target_path(target_pos):
 func _on_HurtBox_area_entered(area):
 	stats.health -= 1
 	lastVel = area.get_owner().velocity
+	healthBar.UpdateHealthBar(stats.health, stats.max_health)

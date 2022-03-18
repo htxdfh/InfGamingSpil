@@ -15,13 +15,15 @@ onready var hurtbox = $PlayerHurtBox
 onready var flash = $AnimationPlayer
 onready var ysort = $YSort
 onready var shoot_timer = $ProjectileCooldown
-onready var timer = $"PlayerHurtBox/InvincibilityTimer"
+onready var timer = $PlayerHurtBox/InvincibilityTimer
+onready var healthBar = $HealthBarSmall
 
 var invincible = false
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
 	flash.play("FlashEnd")
+	healthBar.UpdateHealthBar(stats.health, stats.max_health)
 
 func _physics_process(delta):
 	MovePlayer(delta)
@@ -78,7 +80,7 @@ func _on_PlayerHurtBox_area_entered(_area):
 		Invincibility_started()
 		stats.health -= 1
 		Global.player_health = stats.health
-	
+		healthBar.UpdateHealthBar(stats.health, stats.max_health)
 
 func Invincibility_ended():
 	flash.play("FlashEnd")

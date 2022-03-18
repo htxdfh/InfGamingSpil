@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Stats/Sprites/HealthBarThin.png" type="Texture" id=1]
+[ext_resource path="res://Stats/HealthBar.gd" type="Script" id=2]
+
+[node name="HealthBarSmall" type="Node2D"]
+position = Vector2( 0, -19 )
+script = ExtResource( 2 )
+HealthFull = NodePath("HealthFull")
+HealthLabel = NodePath("Label")
+
+[node name="HealthEmpty" type="TextureRect" parent="."]
+margin_left = -15.0
+margin_top = -3.0
+margin_right = 17.0
+margin_bottom = 3.0
+rect_min_size = Vector2( 0, 2 )
+rect_clip_content = true
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 3
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthFull" type="TextureRect" parent="."]
+margin_left = -15.0
+margin_top = -3.0
+margin_right = 14.0
+margin_bottom = 3.0
+rect_min_size = Vector2( 0, 2 )
+rect_clip_content = true
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -16.0
+margin_top = -3.0
+margin_right = 40.0
+margin_bottom = 28.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
