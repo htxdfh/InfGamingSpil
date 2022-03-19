@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/retro_explosion_general_19.wav-87f306a5f691187265ccd94f1315f56f.sample"
+
+[deps]
+
+source_file="res://Enemy/Audio/Dragon/retro_explosion_general_19.wav"
+dest_files=[ "res://.import/retro_explosion_general_19.wav-87f306a5f691187265ccd94f1315f56f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

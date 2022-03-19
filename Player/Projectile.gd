@@ -6,7 +6,7 @@ var velocity
 
 func shoot(pos, dir):
 	position = pos
-	rotation = dir.angle()
+	rotation = dir.angle() - PI/2
 	velocity = dir
 	
 func _physics_process(delta):

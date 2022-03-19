@@ -140,6 +140,9 @@ one_shot = true
 
 [node name="HealthBarSmall" parent="." instance=ExtResource( 3 )]
 
+[node name="Listener2D" type="Listener2D" parent="."]
+current = true
+
 [connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_PlayerHurtBox_area_entered"]
 [connection signal="timeout" from="PlayerHurtBox/InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
 [connection signal="body_entered" from="PlayerPickupBox" to="." method="_on_PlayerPickupBox_body_entered"]

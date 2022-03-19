@@ -7,9 +7,8 @@ onready var healthBar = $HealthBarSmall
 export(int) var minCoins = 1
 export(int) var maxCoins = 10
 
-export(AudioStreamSample) var hitSounds
-
-onready var audio = $AudioStreamPlayer2D
+export(Array, AudioStreamSample) var hitSounds
+export(Array, AudioStreamSample) var deathSounds
 
 var lastVel = Vector2(0, 0)
 
@@ -23,6 +22,9 @@ func OnDeath():
 	stats.disconnect("no_health", self, "OnDeath")
 	queue_free()
 	
+	deathSounds.shuffle()
+	Global.PlaySound(position, deathSounds.front(), -8)
+	
 	for i in stats.coins:
 		var coinInst = coin.instance()
 		coinInst.Spawn(position, lastVel)
@@ -33,6 +35,6 @@ func _on_HurtBox_area_entered(area):
 	stats.health -= 1
 	healthBar.UpdateHealthBar(stats.health, stats.max_health)
 	
-	Global.sounds_hit_enemy.shuffle()
-	audio.stream = Global.sounds_hit_enemy.front()
-	audio.play()
+	hitSounds.shuffle()
+	Global.PlaySound(position, hitSounds.front(), -10)
+	

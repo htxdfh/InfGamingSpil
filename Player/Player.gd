@@ -91,7 +91,9 @@ func Invincibility_started():
 
 func _on_PlayerPickupBox_body_entered(body):
 	stats.coins += 1
-	body.PickUp()
+	body.queue_free()
+	Global.sounds_coins.shuffle()
+	Global.PlaySound(body.position, Global.sounds_coins.front(), -20)
 
 
 func _on_Projectile_cooldown_timeout():

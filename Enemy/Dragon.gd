@@ -1,6 +1,8 @@
 extends "res://Enemy/WalkingMob.gd"
 
-var arrow = preload("res://Enemy/Arrow.tscn")
+var arrow = preload("res://Enemy/FireBall.tscn")
+
+export(Array, AudioStreamSample) var attackSounds
 
 onready var raycast2d = $RayCast2D
 var canMove
@@ -21,6 +23,9 @@ func Shoot(playerPos):
 		p.show_behind_parent = false
 		p.shoot(position + Vector2(0,6), global_position.direction_to(playerPos) * 100)
 		get_parent().add_child(p)
+		
+		attackSounds.shuffle()
+		Global.PlaySound(position, attackSounds.front(), -10, 0.3)
 
 func get_target_path(target_pos):
 	var space_state = get_world_2d().direct_space_state

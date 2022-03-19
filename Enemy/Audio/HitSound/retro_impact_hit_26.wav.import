@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/retro_impact_hit_26.wav-a82760a95cefebdff24ce422b7750a59.sample"
+
+[deps]
+
+source_file="res://Enemy/Audio/HitSound/retro_impact_hit_26.wav"
+dest_files=[ "res://.import/retro_impact_hit_26.wav-a82760a95cefebdff24ce422b7750a59.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
