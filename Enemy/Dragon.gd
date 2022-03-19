@@ -25,7 +25,7 @@ func Shoot(playerPos):
 		get_parent().add_child(p)
 		
 		attackSounds.shuffle()
-		Global.PlaySound(position, attackSounds.front(), -10, 0.3)
+		Global.PlaySound(position, attackSounds.front(), -15, 0.3)
 
 func get_target_path(target_pos):
 	var space_state = get_world_2d().direct_space_state

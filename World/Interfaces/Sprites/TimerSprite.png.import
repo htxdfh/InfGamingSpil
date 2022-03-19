@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GoblinArcher.png-f9b04f726517fa994b8d46ce07b94839.stex"
+path="res://.import/TimerSprite.png-640630c3a1e735a0cae54d94425c631a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/Sprites/GoblinArcher.png"
-dest_files=[ "res://.import/GoblinArcher.png-f9b04f726517fa994b8d46ce07b94839.stex" ]
+source_file="res://World/Interfaces/Sprites/TimerSprite.png"
+dest_files=[ "res://.import/TimerSprite.png-640630c3a1e735a0cae54d94425c631a.stex" ]
 
 [params]
 
