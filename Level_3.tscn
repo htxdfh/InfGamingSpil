@@ -1,16 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Boxes/NavMesh.png" type="Texture" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://World/Tiles/GroundTile.png" type="Texture" id=3]
 [ext_resource path="res://World/Tiles/WallTile.png" type="Texture" id=4]
-[ext_resource path="res://World/TimerText.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/Interfaces/InGameInterface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemy/Goblin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Doors/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Coin/Coins Text.tscn" type="PackedScene" id=9]
-[ext_resource path="res://World/Level Text.tscn" type="PackedScene" id=10]
-[ext_resource path="res://GameOver.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -79,7 +76,8 @@ extents = Vector2( 90, 32 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 90, 19 )
 
-[node name="Level_2" type="Node2D"]
+[node name="Level_3" type="Node2D"]
+position = Vector2( 4, 0 )
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -141,20 +139,18 @@ collision_mask = 0
 position = Vector2( 0, 19 )
 shape = SubResource( 2 )
 
-[node name="GameOver" parent="." instance=ExtResource( 11 )]
+[node name="InGameInterface" parent="." instance=ExtResource( 5 )]
 
-[node name="TimerText" parent="." instance=ExtResource( 5 )]
-
-[node name="Coins Text" parent="." instance=ExtResource( 9 )]
-player = NodePath("../YSort/Player")
-
-[node name="Level Text" parent="." instance=ExtResource( 10 )]
+[node name="Coins Text" parent="InGameInterface" index="1"]
+player = NodePath("../../YSort/Player")
 
 [node name="NavTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
-[connection signal="pressed" from="GameOver/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="InGameInterface/GameOver/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="NavTimer" to="." method="_on_NavTimer_timeout"]
 
-[editable path="GameOver"]
+[editable path="InGameInterface"]
+[editable path="InGameInterface/TimerText"]
+[editable path="InGameInterface/GameOver"]

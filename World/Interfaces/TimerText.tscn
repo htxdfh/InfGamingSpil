@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Timer.gd" type="Script" id=1]
-[ext_resource path="res://World/Timer.gd" type="Script" id=2]
+[ext_resource path="res://World/Interfaces/Timer.gd" type="Script" id=2]
 
 [node name="TimerText" type="Label"]
 margin_left = 4.0

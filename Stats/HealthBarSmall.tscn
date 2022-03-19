@@ -10,7 +10,7 @@ HealthFull = NodePath("HealthFull")
 HealthLabel = NodePath("Label")
 
 [node name="HealthEmpty" type="TextureRect" parent="."]
-margin_left = -15.0
+margin_left = -16.0
 margin_top = -3.0
 margin_right = 17.0
 margin_bottom = 3.0
@@ -25,7 +25,7 @@ __meta__ = {
 }
 
 [node name="HealthFull" type="TextureRect" parent="."]
-margin_left = -15.0
+margin_left = -16.0
 margin_top = -3.0
 margin_right = 14.0
 margin_bottom = 3.0
@@ -39,9 +39,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = -16.0
+margin_left = -17.0
 margin_top = -3.0
-margin_right = 40.0
+margin_right = 39.0
 margin_bottom = 28.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

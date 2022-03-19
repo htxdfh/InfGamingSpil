@@ -2,9 +2,8 @@ extends Node2D
 
 onready var player = $YSort/Player
 onready var nav = $Navigation2D
-onready var game_over_screen = $GameOver
-onready var timer = $TimerText/Timer
-
+onready var game_over_screen = $InGameInterface/GameOver
+onready var timer = $InGameInterface/TimerText/Timer
 
 func _on_NavTimer_timeout():
 	if is_instance_valid(player) == true:
@@ -13,7 +12,7 @@ func _on_NavTimer_timeout():
 		timer.paused = true
 		game_over_screen.visible = true
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var enemy_count = int(len(get_tree().get_nodes_in_group("Enemy")))
 	if enemy_count == 0:
 		get_tree().call_group("Door", "open_door", null)
@@ -24,3 +23,7 @@ func _on_Button_pressed():
 	Global.level_count = 0
 	timer.start(Global.timer_duration)
 	get_tree().change_scene("res://Level_1.tscn")
+
+
+func _on_Pot_tree_exiting():
+	timer.start(Global.timer_duration)

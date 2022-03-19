@@ -13,7 +13,6 @@ var shoot_ready = true
 onready var stats = $PlayerStats
 onready var hurtbox = $PlayerHurtBox
 onready var flash = $AnimationPlayer
-onready var ysort = $YSort
 onready var shoot_timer = $ProjectileCooldown
 onready var timer = $PlayerHurtBox/InvincibilityTimer
 onready var healthBar = $HealthBarSmall
