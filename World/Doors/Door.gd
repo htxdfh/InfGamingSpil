@@ -21,7 +21,7 @@ func open_door():
 func _on_ChannelBox_area_entered(_area):
 	# get_tree().change_scene("res://Level_" + str(int(rand_range(1,3))) + ".tscn")
 	Global.level_count += 1
-	get_tree().change_scene("res://Level_" + str(int(rand_range(1,5))) + ".tscn")
+	get_tree().change_scene("res://Level_" + str(int(rand_range(1,11))) + ".tscn")
 
 
 func set_level_count(value):

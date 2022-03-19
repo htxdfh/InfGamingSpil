@@ -33,7 +33,7 @@ func AttractCoins(delta):
 	for coin in get_tree().get_nodes_in_group("Coin"):
 		var dirVec = (position - coin.position)
 		var dist = position.distance_to(coin.position)
-		coin.apply_central_impulse(dirVec.normalized() * 10000/dist * delta )
+		coin.apply_central_impulse(dirVec.normalized() * 20000/dist * delta )
 	
 
 func Shoot():
