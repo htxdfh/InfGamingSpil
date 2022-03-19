@@ -91,7 +91,7 @@ func Invincibility_started():
 
 func _on_PlayerPickupBox_body_entered(body):
 	stats.coins += 1
-	body.queue_free()
+	body.PickUp()
 
 
 func _on_Projectile_cooldown_timeout():

@@ -2,6 +2,7 @@ extends Node2D
 
 onready var player = $YSort/Player
 onready var nav = $Navigation2D
+onready var navAir = $NavigationAir
 onready var game_over_screen = $InGameInterface/GameOver
 onready var timer = $InGameInterface/TimerText/Timer
 

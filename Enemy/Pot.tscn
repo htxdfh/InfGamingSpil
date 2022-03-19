@@ -4,7 +4,7 @@
 [ext_resource path="res://Stats/HealthBarSmall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Stats/GoblinStats.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Boxes/HurtBox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemy/Pot.gd" type="Script" id=5]
+[ext_resource path="res://Enemy/Mob.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.99999
@@ -19,6 +19,7 @@ position = Vector2( 0, -10 )
 collision_layer = 4
 collision_mask = 12
 script = ExtResource( 5 )
+maxCoins = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 5 )
@@ -44,11 +45,7 @@ shape = SubResource( 2 )
 position = Vector2( 0, -4 )
 
 [node name="HealthEmpty" parent="HealthBarSmall" index="0"]
-margin_left = -16.0
 margin_right = 14.0
-
-[node name="HealthFull" parent="HealthBarSmall" index="1"]
-margin_left = -16.0
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 

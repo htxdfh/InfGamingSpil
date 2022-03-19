@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const lifetime = 1
+export(float) var lifetime = 1
 var velocity
 
 

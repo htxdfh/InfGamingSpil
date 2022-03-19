@@ -29,4 +29,5 @@ func set_coins(value):
 	print("Set Coins called")
 
 func _ready():
-	self.health = int(self.max_health)
+	self.max_health = int(self.max_health * Global.DiffMultiplier())
+	self.health = max_health

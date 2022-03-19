@@ -15,5 +15,9 @@
 
 [node name="GameOver" parent="." instance=ExtResource( 4 )]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 88, 160 )
+current = true
+
 [editable path="TimerText"]
 [editable path="GameOver"]
