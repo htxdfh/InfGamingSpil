@@ -23,7 +23,7 @@ func OnDeath():
 	queue_free()
 	
 	deathSounds.shuffle()
-	Global.PlaySound(position, deathSounds.front(), -8)
+	Global.PlaySound(position, deathSounds.front(), -15)
 	
 	for i in stats.coins:
 		var coinInst = coin.instance()
@@ -36,5 +36,5 @@ func _on_HurtBox_area_entered(area):
 	healthBar.UpdateHealthBar(stats.health, stats.max_health)
 	
 	hitSounds.shuffle()
-	Global.PlaySound(position, hitSounds.front(), -10)
+	Global.PlaySound(position, hitSounds.front(), -20)
 	
