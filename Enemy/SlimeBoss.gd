@@ -55,7 +55,7 @@ func shoot():
 
 func jump(delta):
 	if can_jump == true:
-		global_position = global_position.move_toward(jump_target, 3)
+		global_position = global_position.move_toward(jump_target, 4)
 		if global_position.distance_to(jump_target) < 10:
 			print("no way")
 			dangerzone()
@@ -63,7 +63,7 @@ func jump(delta):
 
 func fall(delta):
 	if can_fall == true:
-		global_position = global_position.move_toward(danger_zone.global_position, 4)
+		global_position = global_position.move_toward(danger_zone.global_position, 6)
 		danger_zone.global_position = zone_hold_still_position
 		if global_position.distance_to(danger_zone.global_position) < 2:
 			print("yes way")
