@@ -42,15 +42,16 @@ func _physics_process(delta):
 			print(can_jump)
 
 func shoot():
-	var anger_level: float = float(slime_stats.max_health) / float(slime_stats.health)
-	if anger_level > 1.5:
-		anger_level = 1.5
-	var slimeball_speed = 150 * anger_level
-	var p = slime.instance()
-	p.show_behind_parent = false
-	var direction = global_position.direction_to(get_parent().get_node("Player").position)
-	p.shoot(position + Vector2(0,6), direction * slimeball_speed)
-	get_parent().add_child(p)
+	if get_parent().get_node("Player") != null:
+		var anger_level: float = float(slime_stats.max_health) / float(slime_stats.health)
+		if anger_level > 1.5:
+			anger_level = 1.5
+		var slimeball_speed = 150 * anger_level
+		var p = slime.instance()
+		p.show_behind_parent = false
+		var direction = global_position.direction_to(get_parent().get_node("Player").position)
+		p.shoot(position + Vector2(0,6), direction * slimeball_speed)
+		get_parent().add_child(p)
 
 func jump(delta):
 	if can_jump == true:
@@ -74,19 +75,20 @@ func fall(delta):
 			slime_ball_timer.start()
 
 func dangerzone():
-	danger_zone.global_position = get_parent().get_node("Player").position
-	if danger_zone.global_position.x < 68:
-		danger_zone.global_position.x = 68
-	if danger_zone.global_position.x > 108:
-		danger_zone.global_position.x = 108
-	if danger_zone.global_position.y < 80:
-		danger_zone.global_position.y = 80
-	if danger_zone.global_position.y > 224:
-		danger_zone.global_position.y = 224
-		
-	zone_hold_still_position = danger_zone.global_position
-	danger_zone.visible = true
-	fall_timer.start()
+	if get_parent().get_node("Player") != null:
+		danger_zone.global_position = get_parent().get_node("Player").position
+		if danger_zone.global_position.x < 68:
+			danger_zone.global_position.x = 68
+		if danger_zone.global_position.x > 108:
+			danger_zone.global_position.x = 108
+		if danger_zone.global_position.y < 80:
+			danger_zone.global_position.y = 80
+		if danger_zone.global_position.y > 224:
+			danger_zone.global_position.y = 224
+			
+		zone_hold_still_position = danger_zone.global_position
+		danger_zone.visible = true
+		fall_timer.start()
 
 func start_jump():
 	slime_ball_timer.stop()
