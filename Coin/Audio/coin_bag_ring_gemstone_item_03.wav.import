@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/coin_bag_ring_gemstone_item_03.wav-1893c372d7692e785858aec332e81514.sample"
+
+[deps]
+
+source_file="res://Coin/Audio/coin_bag_ring_gemstone_item_03.wav"
+dest_files=[ "res://.import/coin_bag_ring_gemstone_item_03.wav-1893c372d7692e785858aec332e81514.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
