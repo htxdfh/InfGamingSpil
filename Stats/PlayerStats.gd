@@ -30,7 +30,6 @@ func set_coins(value):
 	coins = value
 	Global.player_coins = value
 	emit_signal("coins_changed", Global.player_coins)
-	print("Set Coins called")
 
 func _ready():
 	max_health = Global.player_max_health
