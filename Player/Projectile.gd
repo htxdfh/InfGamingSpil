@@ -8,6 +8,7 @@ func shoot(pos, dir):
 	position = pos
 	rotation = dir.angle() - PI/2
 	velocity = dir
+
 	
 func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)

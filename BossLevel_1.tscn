@@ -89,7 +89,7 @@ tile_data = PoolIntArray( 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0
 position = Vector2( 88, 40 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 144, 235 )
+position = Vector2( 88, 235 )
 
 [node name="Borderline" type="StaticBody2D" parent="YSort"]
 collision_layer = 8
@@ -117,10 +117,9 @@ position = Vector2( 0, 19 )
 shape = SubResource( 2 )
 
 [node name="SlimeBoss" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 76, 83 )
+position = Vector2( 88, 126 )
 
 [node name="InGameInterface" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="Coins Text" parent="InGameInterface" index="2"]
 player = NodePath("../../YSort/Player")
