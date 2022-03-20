@@ -1,18 +1,10 @@
-extends Button
-
-onready var Button_label = $Label
-
-export(NodePath) onready var player
-
-export(float) var price = 1
+extends "res://ShopItem.gd"
 
 func _ready():
-	if Global.has_damage_upgrade == true:
-		Button_label.set_text("Bought!")
+	UpdateUI("Damage: ", Global.player_damage_lvl)
 
-func _pressed():
-	if get_node(player).stats.coins >= price:
-		get_node(player).stats.coins -= price
-		Global.has_damage_upgrade = true
-		Button_label.set_text("Bought!")
+func BoughtItem():
+	Global.player_damage_lvl += 1
+	UpdateUI("Damage: ", Global.player_damage_lvl)
+	
 

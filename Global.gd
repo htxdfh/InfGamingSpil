@@ -14,16 +14,25 @@ var audioObjectScene = preload("res://AudioObject.tscn")
 
 var volumeMul = 1
 
-var has_damage_upgrade = false
+var player_damage_lvl = 0
 
-var has_speed_upgrade = false
+var player_speed_lvl = 0
 
-var has_fire_rate_upgrade = false
+var player_fire_rate_lvl = 0
 
 func DiffMultiplier():
 	return pow(1.1, level_count)
 
 var sounds_coins = []
+
+func GetFireRate():
+	return lerp(0, 0.1, pow(0.9, player_fire_rate_lvl))
+	
+func GetMaxSpeed():
+	return (1 - pow(0.99,player_speed_lvl))*200 + 180
+
+func GetDamage():
+	return pow(player_damage_lvl+1, 1.2)
 
 func PlaySound(pos, audiostream, volume, pitch = 1):
 	var aosInst = audioObjectScene.instance()

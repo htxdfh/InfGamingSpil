@@ -157,15 +157,30 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+Button_label = NodePath("Label")
+Price_label = NodePath("Label2")
 player = NodePath("../../YSort/Player")
 price = 750.0
 
 [node name="Label" type="Label" parent="StoreInterface/Damage"]
-margin_left = -114.0
-margin_right = 55.0
-margin_bottom = 31.0
+margin_left = -112.0
+margin_top = -7.0
+margin_right = 12.0
+margin_bottom = 24.0
 rect_scale = Vector2( 0.9, 0.9 )
-text = "Damage: 750 coins"
+text = "Damage:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="StoreInterface/Damage"]
+margin_left = -112.0
+margin_top = 9.0
+margin_right = 12.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.9, 0.9 )
+text = "750 coins"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -173,24 +188,38 @@ __meta__ = {
 
 [node name="FireRate" type="Button" parent="StoreInterface"]
 margin_left = 36.0
-margin_top = -35.0
+margin_top = -40.0
 margin_right = 72.0
-margin_bottom = -10.0
+margin_bottom = -15.0
 text = "Buy"
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+Button_label = NodePath("Label2")
+Price_label = NodePath("Label3")
 player = NodePath("../../YSort/Player")
 price = 500.0
 
 [node name="Label2" type="Label" parent="StoreInterface/FireRate"]
-margin_left = -114.0
-margin_top = 2.0
-margin_right = 9.0
-margin_bottom = 27.0
+margin_left = -112.0
+margin_top = -5.0
+margin_right = 11.0
+margin_bottom = 20.0
 rect_scale = Vector2( 0.9, 0.9 )
-text = "Fire rate: 500 coins"
+text = "Fire rate:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="StoreInterface/FireRate"]
+margin_left = -112.0
+margin_top = 11.0
+margin_right = 11.0
+margin_bottom = 36.0
+rect_scale = Vector2( 0.9, 0.9 )
+text = "500 coins"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -198,24 +227,38 @@ __meta__ = {
 
 [node name="Speed" type="Button" parent="StoreInterface"]
 margin_left = 36.0
-margin_top = -70.0
+margin_top = -80.0
 margin_right = 72.0
-margin_bottom = -45.0
+margin_bottom = -55.0
 text = "Buy"
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+Button_label = NodePath("Label3")
+Price_label = NodePath("Label4")
 player = NodePath("../../YSort/Player")
 price = 250.0
 
 [node name="Label3" type="Label" parent="StoreInterface/Speed"]
-margin_left = -115.0
-margin_top = 1.0
-margin_right = 36.0
-margin_bottom = 26.0
+margin_left = -112.0
+margin_top = -8.0
+margin_right = 12.0
+margin_bottom = 17.0
 rect_scale = Vector2( 0.9, 0.9 )
-text = "Speed:     250 coins"
+text = "Speed:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="StoreInterface/Speed"]
+margin_left = -112.0
+margin_top = 8.0
+margin_right = 12.0
+margin_bottom = 33.0
+rect_scale = Vector2( 0.9, 0.9 )
+text = "250 coins"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

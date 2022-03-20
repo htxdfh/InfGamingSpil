@@ -2,14 +2,13 @@ extends KinematicBody2D
 
 # 
 const ACCELERATION = 1200
-var MAX_SPEED = 180
 const FRICTION = 1200
 const PROJECTILE_SPEED = 200
+var MAXSPEED = 180
 #
 var velocity = Vector2.ZERO
 var projectile = preload("res://Player/Projectile.tscn")
 var shoot_ready = true
-var fire_rate = 0.1
 
 onready var stats = $PlayerStats
 onready var hurtbox = $PlayerHurtBox
@@ -18,16 +17,17 @@ onready var shoot_timer = $ProjectileCooldown
 onready var timer = $PlayerHurtBox/InvincibilityTimer
 onready var healthBar = $HealthBarSmall
 
+var fire_rate = 0.1
+
 var invincible = false
 
 func _ready():
 	stats.connect("no_health", self, "queue_free")
 	flash.play("FlashEnd")
 	healthBar.UpdateHealthBar(stats.health, stats.max_health)
-	if Global.has_speed_upgrade == true:
-		MAX_SPEED = 200
-	if Global.has_fire_rate_upgrade == true:
-		fire_rate = 0.08
+	MAXSPEED = Global.GetMaxSpeed()
+	fire_rate = Global.GetFireRate()
+	
 
 func _physics_process(delta):
 	MovePlayer(delta)
@@ -71,7 +71,7 @@ func MovePlayer(delta):
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(input_vector * MAXSPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		

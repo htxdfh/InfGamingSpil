@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Boxes/NavMesh.png" type="Texture" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://World/Tiles/Tiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy/Archer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Interfaces/InGameInterface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemy/Goblin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Doors/Door.tscn" type="PackedScene" id=7]
@@ -122,17 +123,14 @@ shape = SubResource( 2 )
 [node name="Goblin" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 160, 163 )
 
-[node name="Goblin2" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 105, 149 )
-
 [node name="Goblin3" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 40, 149 )
 
-[node name="Goblin4" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 59, 84 )
-
 [node name="Goblin5" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 13, 64 )
+
+[node name="Archer" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 60, 96 )
 
 [node name="InGameInterface" parent="." instance=ExtResource( 5 )]
 

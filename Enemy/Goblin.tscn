@@ -33,7 +33,7 @@ collision_layer = 4
 collision_mask = 76
 script = ExtResource( 2 )
 minCoins = 2
-maxCoins = 5
+maxCoins = 8
 hitSounds = [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ]
 deathSounds = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ) ]
 

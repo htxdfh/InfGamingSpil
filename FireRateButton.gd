@@ -1,17 +1,10 @@
-extends Button
-
-onready var Button_label = $Label2
-
-export(NodePath) onready var player
-
-export(float) var price = 1
+extends "res://ShopItem.gd"
 
 func _ready():
-	if Global.has_fire_rate_upgrade == true:
-		Button_label.set_text("Bought!")
+	UpdateUI("Fire rate: ", Global.player_fire_rate_lvl)
 
-func _pressed():
-	if get_node(player).stats.coins >= price:
-		get_node(player).stats.coins -= price
-		Global.has_fire_rate_upgrade = true
-		Button_label.set_text("Bought!")
+func BoughtItem():
+	Global.player_fire_rate_lvl += 1
+	UpdateUI("Fire rate: ", Global.player_fire_rate_lvl)
+	
+

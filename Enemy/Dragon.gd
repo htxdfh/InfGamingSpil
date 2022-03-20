@@ -28,9 +28,7 @@ func Shoot(playerPos):
 		Global.PlaySound(position, attackSounds.front(), -15, 0.3)
 
 func get_target_path(target_pos):
-	var space_state = get_world_2d().direct_space_state
-	var col = space_state.intersect_ray(global_position, target_pos, [self])
-	if col || global_position.distance_to(target_pos) > 70:
+	if global_position.distance_to(target_pos) > 80:
 		canMove = true
 	else:
 		canMove = false
