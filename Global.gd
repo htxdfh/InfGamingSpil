@@ -14,6 +14,12 @@ var audioObjectScene = preload("res://AudioObject.tscn")
 
 var volumeMul = 1
 
+var has_damage_upgrade = false
+
+var has_speed_upgrade = false
+
+var has_fire_rate_upgrade = false
+
 func DiffMultiplier():
 	return pow(1.1, level_count)
 

@@ -9,7 +9,6 @@ var coins = 0 setget set_coins
 signal no_health
 signal health_changed(value)
 signal max_health_changed(value)
-
 signal coins_changed(value)
 
 func set_max_health(value):

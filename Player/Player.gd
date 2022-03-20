@@ -2,13 +2,14 @@ extends KinematicBody2D
 
 # 
 const ACCELERATION = 1200
-const MAX_SPEED = 180
+var MAX_SPEED = 180
 const FRICTION = 1200
 const PROJECTILE_SPEED = 200
 #
 var velocity = Vector2.ZERO
 var projectile = preload("res://Player/Projectile.tscn")
 var shoot_ready = true
+var fire_rate = 0.1
 
 onready var stats = $PlayerStats
 onready var hurtbox = $PlayerHurtBox
@@ -23,6 +24,10 @@ func _ready():
 	stats.connect("no_health", self, "queue_free")
 	flash.play("FlashEnd")
 	healthBar.UpdateHealthBar(stats.health, stats.max_health)
+	if Global.has_speed_upgrade == true:
+		MAX_SPEED = 200
+	if Global.has_fire_rate_upgrade == true:
+		fire_rate = 0.08
 
 func _physics_process(delta):
 	MovePlayer(delta)
@@ -45,7 +50,7 @@ func Shoot():
 	
 	if shoot_vector != Vector2.ZERO and shoot_ready == true:
 		shoot_ready = false
-		shoot_timer.start()
+		shoot_timer.start(fire_rate)
 		if shoot_vector.y <= 0:
 			var p = projectile.instance()
 			p.show_behind_parent = true
@@ -98,9 +103,6 @@ func _on_PlayerPickupBox_body_entered(body):
 
 func _on_Projectile_cooldown_timeout():
 	shoot_ready = true
-	print("hello")
-
-
 
 func _on_InvincibilityTimer_timeout():
 	invincible = false

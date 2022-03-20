@@ -32,7 +32,7 @@ func OnDeath():
 		
 func _on_HurtBox_area_entered(area):
 	lastVel = area.get_owner().velocity
-	stats.health -= 1
+	stats.health -= area.damage
 	healthBar.UpdateHealthBar(stats.health, stats.max_health)
 	
 	hitSounds.shuffle()

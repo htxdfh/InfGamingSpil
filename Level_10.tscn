@@ -139,6 +139,9 @@ position = Vector2( 13, 64 )
 [node name="Coins Text" parent="InGameInterface" index="2"]
 player = NodePath("../../YSort/Player")
 
+[node name="GameOver" parent="InGameInterface" index="4"]
+visible = false
+
 [node name="NavTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
