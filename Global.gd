@@ -29,10 +29,10 @@ func GetFireRate():
 	return lerp(0, 0.1, pow(0.9, player_fire_rate_lvl))
 	
 func GetMaxSpeed():
-	return (1 - pow(0.99,player_speed_lvl))*200 + 180
+	return (1 - pow(0.9,player_speed_lvl))*200 + 180
 
 func GetDamage():
-	return pow(player_damage_lvl+1, 1.2)
+	return pow(1.2, player_damage_lvl)
 
 func PlaySound(pos, audiostream, volume, pitch = 1):
 	var aosInst = audioObjectScene.instance()
