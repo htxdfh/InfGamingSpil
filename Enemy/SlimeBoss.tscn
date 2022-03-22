@@ -49,6 +49,7 @@ modulate = Color( 1, 1, 1, 0.784314 )
 texture = ExtResource( 7 )
 
 [node name="HitBox" parent="." instance=ExtResource( 3 )]
+visible = false
 rotation = 1.5708
 collision_layer = 0
 
