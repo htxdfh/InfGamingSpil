@@ -32,6 +32,7 @@ window/stretch/aspect="keep"
 pixel=false
 window=false
 layer=false
+run=false
 
 [input]
 
