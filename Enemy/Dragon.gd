@@ -17,6 +17,7 @@ func Move(delta):
 		.Move(delta)
 
 func Shoot(playerPos):
+	# Betingelse der checker om der er gået 1 sekund fra sidste skud
 	if OS.get_unix_time() - lastShotTime > 1:
 		lastShotTime = OS.get_unix_time()
 		var p = arrow.instance()
@@ -28,6 +29,7 @@ func Shoot(playerPos):
 		Global.PlaySound(position, attackSounds.front(), -15, 0.3)
 
 func get_target_path(target_pos):
+	#Hvis tæt på spilleren så stå stille og skyd
 	if global_position.distance_to(target_pos) > 80:
 		canMove = true
 	else:

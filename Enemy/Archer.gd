@@ -20,11 +20,13 @@ func Shoot(playerPos):
 		get_parent().add_child(p)
 
 func get_target_path(target_pos):
+	#Får en lige linje mellem fjenden og spilleren
 	var space_state = get_world_2d().direct_space_state
 	var col = space_state.intersect_ray(global_position, target_pos, [self])
+	#Hvis der noget mellem spilleren og fjenden så bevæg sig som normal
 	if col:
 		canMove = true
-	else:
+	else: #ellers stå stille og skyd
 		canMove = false
 		Shoot(target_pos)
 		

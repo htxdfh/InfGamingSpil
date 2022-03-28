@@ -16,6 +16,7 @@ func _ready():
 	yield(owner, "ready")
 	GetNav()
 
+#Får hvor fjenden kan gå på
 func GetNav():
 	nav = owner.nav
 
@@ -28,6 +29,7 @@ func Move(delta):
 			path.remove(0)
 		else:
 			direction = global_position.direction_to(path[0])
+	
 	velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 	velocity = move_and_slide(velocity)
 

@@ -1,6 +1,6 @@
 extends Node
 
-var timer_duration = 180
+var timer_duration = 2
 
 var player_max_health = 3
 
@@ -25,6 +25,7 @@ func DiffMultiplier():
 
 var sounds_coins = []
 
+#Funktioner til beregning af shop opgradering
 func GetFireRate():
 	return lerp(0, 0.1, pow(0.9, player_fire_rate_lvl))
 	
@@ -34,6 +35,7 @@ func GetMaxSpeed():
 func GetDamage():
 	return pow(1.2, player_damage_lvl)
 
+#Spiller en lyd
 func PlaySound(pos, audiostream, volume, pitch = 1):
 	var aosInst = audioObjectScene.instance()
 	aosInst.position = pos
@@ -42,6 +44,7 @@ func PlaySound(pos, audiostream, volume, pitch = 1):
 	get_parent().add_child(aosInst)
 	aosInst.PlaySound(audiostream)
 
+#indlæser lydfiler til mønter
 func _ready():
 	sounds_coins.append(preload("res://Coin/Audio/coin_pickup (1).wav"))
 	sounds_coins.append(preload("res://Coin/Audio/coin_pickup (2).wav"))

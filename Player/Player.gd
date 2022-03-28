@@ -33,12 +33,13 @@ func _physics_process(delta):
 	MovePlayer(delta)
 	Shoot()
 	AttractCoins(delta)
-	
+
+
 func AttractCoins(delta):
 	for coin in get_tree().get_nodes_in_group("Coin"):
-		var dirVec = (position - coin.position)
+		var dirVec = (position - coin.position).normalized()
 		var dist = position.distance_to(coin.position)
-		coin.apply_central_impulse(dirVec.normalized() * 20000/dist * delta )
+		coin.apply_central_impulse(dirVec * 20000/dist * delta )
 	
 
 func Shoot():
@@ -48,19 +49,22 @@ func Shoot():
 	
 	shoot_vector = shoot_vector.normalized() * PROJECTILE_SPEED
 	
-	if shoot_vector != Vector2.ZERO and shoot_ready == true:
+	if shoot_vector != Vector2.ZERO && shoot_ready:
+		#Vent indtil der kan skydes igen
 		shoot_ready = false
-		shoot_timer.start(fire_rate)
+		shoot_timer.start(fire_rate) 
+		
+		var p = projectile.instance()
+		
+		# skyder opad, så gem projektilet bag spilleren
 		if shoot_vector.y <= 0:
-			var p = projectile.instance()
 			p.show_behind_parent = true
-			p.shoot(position + Vector2(0,6), shoot_vector )
-			get_parent().add_child(p)
 		else:
-			var p = projectile.instance()
 			p.show_behind_parent = false
-			p.shoot(position + Vector2(0,6), shoot_vector )
-			get_parent().add_child(p)
+
+		
+		p.shoot(position + Vector2(0,6), shoot_vector )
+		get_parent().add_child(p)
 		
 
 func MovePlayer(delta):

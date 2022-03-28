@@ -76,6 +76,7 @@ func fall(delta):
 
 func dangerzone():
 	if get_parent().get_node("Player") != null:
+		#Sikrer at den ikke hopper ud af banen
 		danger_zone.global_position = get_parent().get_node("Player").position
 		if danger_zone.global_position.x < 68:
 			danger_zone.global_position.x = 68

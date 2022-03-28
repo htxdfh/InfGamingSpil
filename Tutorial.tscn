@@ -215,6 +215,7 @@ wait_time = 0.5
 autostart = true
 
 [connection signal="tree_exiting" from="YSort/Pot" to="." method="_on_Pot_tree_exiting"]
+[connection signal="timeout" from="InGameInterface/TimerText/Timer" to="InGameInterface/TimerText/Timer" method="_on_Timer_timeout"]
 [connection signal="pressed" from="InGameInterface/GameOver/Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="NavTimer" to="." method="_on_NavTimer_timeout"]
 

@@ -15,7 +15,8 @@ var lastVel = Vector2(0, 0)
 func _ready():
 	randomize()
 	stats.coins = randi()%int(maxCoins*Global.DiffMultiplier()) + int(minCoins*Global.DiffMultiplier())
-	stats.connect("no_health", self, "OnDeath")
+	
+	stats.connect("no_health", self, "OnDeath") #Kører metoden OnDeath når fjenden rammer 0 liv
 	healthBar.UpdateHealthBar(stats.health, stats.max_health)
 
 func OnDeath():
@@ -25,11 +26,13 @@ func OnDeath():
 	deathSounds.shuffle()
 	Global.PlaySound(position, deathSounds.front(), -15)
 	
+	#Lave instanser af mønter
 	for i in stats.coins:
 		var coinInst = coin.instance()
 		coinInst.Spawn(position, lastVel)
 		get_parent().call_deferred("add_child", coinInst)
 		
+#Bliver kaldt når et projektil rammer fjenden
 func _on_HurtBox_area_entered(area):
 	lastVel = area.get_owner().velocity
 	stats.health -= area.damage
