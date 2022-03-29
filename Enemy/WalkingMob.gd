@@ -24,6 +24,7 @@ func _physics_process(delta):
 	Move(delta)
 
 func Move(delta):
+	# bruger pathfinding
 	if path.size() > 1:
 		if global_position.distance_to(path[0]) < threshold:
 			path.remove(0)

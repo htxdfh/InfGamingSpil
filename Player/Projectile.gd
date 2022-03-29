@@ -8,7 +8,7 @@ var velocity
 
 func shoot(pos, dir):
 	position = pos
-	rotation = dir.angle() - PI/2
+	rotation = dir.angle() - PI/2 #Drejer sprite 90 grader
 	velocity = dir
 
 func _physics_process(delta):

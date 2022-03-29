@@ -1,6 +1,6 @@
 extends Node
 
-var timer_duration = 2
+var timer_duration = 180
 
 var player_max_health = 3
 

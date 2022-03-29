@@ -10,7 +10,6 @@ signal invincibility_ended
 func set_invisible(value):
 	invincible = value
 	if invincible == true:
-		print("hello")
 		emit_signal("invincibility_started")
 	else:
 		emit_signal("invincibility_ended")

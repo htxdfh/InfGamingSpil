@@ -22,7 +22,9 @@ var fire_rate = 0.1
 var invincible = false
 
 func _ready():
+	# Kører metoden queue_free() når spilleren rammer 0 liv
 	stats.connect("no_health", self, "queue_free")
+	
 	flash.play("FlashEnd")
 	healthBar.UpdateHealthBar(stats.health, stats.max_health)
 	MAXSPEED = Global.GetMaxSpeed()
@@ -81,6 +83,7 @@ func MovePlayer(delta):
 		
 	velocity = move_and_slide(velocity)
 
+#Bliver kaldt når en fjender rammer spilleren
 func _on_PlayerHurtBox_area_entered(_area):
 	if !invincible:
 		invincible = true
@@ -98,6 +101,7 @@ func Invincibility_started():
 	flash.play("FlashStart")
 	hurtbox.set_deferred("monitoring", false)
 
+#Bliver kaldt når en mønt rammer spilleren
 func _on_PlayerPickupBox_body_entered(body):
 	stats.coins += 1
 	body.queue_free()
