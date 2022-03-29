@@ -37,5 +37,7 @@ valign = 1
 position = Vector2( 88, 160 )
 current = true
 
+[connection signal="timeout" from="TimerText/Timer" to="TimerText/Timer" method="_on_Timer_timeout"]
+
 [editable path="TimerText"]
 [editable path="GameOver"]
