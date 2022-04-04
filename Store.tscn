@@ -159,7 +159,7 @@ __meta__ = {
 Button_label = NodePath("Label")
 Price_label = NodePath("Label2")
 player = NodePath("../../YSort/Player")
-price = 750.0
+default_price = 750.0
 
 [node name="Label" type="Label" parent="StoreInterface/Damage"]
 margin_left = -112.0
@@ -198,7 +198,7 @@ __meta__ = {
 Button_label = NodePath("Label2")
 Price_label = NodePath("Label3")
 player = NodePath("../../YSort/Player")
-price = 500.0
+default_price = 500.0
 
 [node name="Label2" type="Label" parent="StoreInterface/FireRate"]
 margin_left = -112.0
@@ -237,7 +237,7 @@ __meta__ = {
 Button_label = NodePath("Label3")
 Price_label = NodePath("Label4")
 player = NodePath("../../YSort/Player")
-price = 250.0
+default_price = 250.0
 
 [node name="Label3" type="Label" parent="StoreInterface/Speed"]
 margin_left = -112.0

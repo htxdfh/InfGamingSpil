@@ -5,11 +5,13 @@ export(NodePath) var Price_label
 
 export(NodePath) onready var player
 
-export(float) var price = 1
+export(float) var default_price = 1
+
+var price = default_price
 
 func UpdateUI(labeltext, level):
 	get_node(Button_label).set_text(labeltext + str(level))
-	price = int(price * pow(1.05, level))
+	price = int(default_price * pow(1.05, level))
 	get_node(Price_label).set_text(str(price))
 
 func _pressed():
